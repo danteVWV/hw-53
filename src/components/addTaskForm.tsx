@@ -1,13 +1,16 @@
-interface TaskFormProps {
-  task: string
+import React from "react";
+
+interface AddTaskProps {
+  inputValue: React.ChangeEventHandler;
+  addBoxClick: React.MouseEventHandler;
 }
 
-const AddTaskForm: React.FC<TaskFormProps> = props => {
+const AddTaskForm: React.FC<AddTaskProps> = props => {
   return(
-      <form>
-        <input className="input-box" type="text" value={props.task} placeholder="Add new task"/>
-        <button className="add-btn">Add</button>
-      </form>
+    <form>
+      <input className="input-box" onChange={props.inputValue} type="text" placeholder="Add new task"/>
+      <button className="add-btn" onClick={props.addBoxClick}>Add</button>
+    </form>
   )
 }
 
